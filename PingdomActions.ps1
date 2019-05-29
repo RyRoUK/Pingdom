@@ -1,6 +1,6 @@
 #Requires -Version 3.0
 $DEFAULT_API_VERSION = '2.1'
-$current_api_version = $DEFAULT_API_VERSION
+$CURRENT_API_VERSION = $DEFAULT_API_VERSION
 <################################################
 .Synopsis
    Returns a list of actions (alerts) that have been generated for your account.
@@ -42,7 +42,7 @@ Function Get-PingdomActions{
 		[Parameter(Position=9)]
 		[string[]]$Via
     )
-	$urlstring = 'https://api.pingdom.com/api/{0}/actions'-f $current_api_version
+	$urlstring = 'https://api.pingdom.com/api/{0}/actions'-f $CURRENT_API_VERSION
 	[string[]]$queryParams = @()
 	if ($PSBoundParameters["From"]){
 		$queryParams += , "from={0}" -f (ConvertTo-UnixTimestamp $From)

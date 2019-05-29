@@ -1,6 +1,6 @@
 #Requires -Version 3.0
 $DEFAULT_API_VERSION = '2.1'
-$current_api_version = $DEFAULT_API_VERSION
+$CURRENT_API_VERSION = $DEFAULT_API_VERSION
 <################################################
 .Synopsis
    Returns a list of all contacts.
@@ -22,7 +22,7 @@ Function Get-PingdomContact{
 		[Parameter(Position=3)]
 		[int]$Offset
     )
-	$urlstring = 'https://api.pingdom.com/api/{0}/contacts' -f $current_api_version
+	$urlstring = 'https://api.pingdom.com/api/{0}/contacts' -f $CURRENT_API_VERSION
 	[string[]]$queryParams = @()
 	if ($PSBoundParameters["Limit"]){
 		$queryParams += , "limit={0}" -f $Limit

@@ -1,6 +1,6 @@
 #Requires -Version 3.0
 $DEFAULT_API_VERSION = '2.1'
-$current_api_version = $DEFAULT_API_VERSION
+$CURRENT_API_VERSION = $DEFAULT_API_VERSION
 $AVAILABLE_PARAMS = @("CheckId", "Limit", "CheckName", "Hostname", "Paused", "Resolution", "ContactIds", "SendToEmail", "SendToSms",
                                     "SendToTwitter", "SendToIphone", "SendToAndroid", "SendNotificationWhenDown", "Offset", "AnalysisId",
                                     "NotifyAgainEvery", "NotifyWhenBackup", "Url", "Encryption", "Port", "Auth", "To", "From", "Status", 
@@ -170,7 +170,7 @@ Function Set-PingdomCheck{
             }
         }
     }
-    $urlstring = 'https://api.pingdom.com/api/{0}/checks' -f $current_api_version
+    $urlstring = 'https://api.pingdom.com/api/{0}/checks' -f $CURRENT_API_VERSION
     $params = @{Credential=$Credential
 		APIKey=$APIKey
 		API=$urlstring

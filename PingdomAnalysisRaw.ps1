@@ -1,6 +1,6 @@
 #Requires -Version 3.0
 $DEFAULT_API_VERSION = '2.1'
-$current_api_version = $DEFAULT_API_VERSION
+$CURRENT_API_VERSION = $DEFAULT_API_VERSION
 <################################################
 .Synopsis
    Returns the raw result for a specified error analysis. This data is primarily 
@@ -37,7 +37,7 @@ Function Get-PingdomAnalysisRaw{
 		[Parameter(Position=7)]
 		[DateTime]$To
     )
-	$urlstring = 'https://api.pingdom.com/api/{0}/analysis/{1}/{2}' -f $current_api_version, $CheckId
+	$urlstring = 'https://api.pingdom.com/api/{0}/analysis/{1}/{2}' -f $CURRENT_API_VERSION, $CheckId
 	[string[]]$queryParams = @()
 	if ($PSBoundParameters["From"]){
 		$queryParams += , "from={0}" -f (ConvertTo-UnixTimestamp $From)

@@ -120,4 +120,4 @@ $authParams = @{Credential = $Cred
 
 $checks = Get-PingdomCheck @authParams
 
-$checks.checks | Select-Object Name, Hostname, @{n="LastTestTime";e={ConvertFrom-UnixTimestamp -TimeStamp $_.LastTestTime}}, Status | Format-Table -AutoSize | Export-Csv -Path /Users/User/Downloads/PingdomChecks.csv -Force
+$checks.checks | Select-Object ID, @{n="Created";e={ConvertFrom-UnixTimestamp -TimeStamp $_.Created}}, Name, Hostname, Resolution, Type, IPv6, Verify_Certificate, @{n="LastErrorTime";e={ConvertFrom-UnixTimestamp -TimeStamp $_.LastErrorTime}}, @{n="LastTestTime";e={ConvertFrom-UnixTimestamp -TimeStamp $_.LastTestTime}}, Status | Export-Csv -Path /Users/Username/Downloads/PingdomChecks.csv -Force

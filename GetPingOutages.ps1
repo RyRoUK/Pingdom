@@ -25,5 +25,5 @@ function ConvertFrom-UnixTimestamp{
 Get-PingOutages | Select-Object `
     Status, `
     @{n="TimeFrom";e={ConvertFrom-UnixTimestamp -TimeStamp $_.TimeFrom}}, `
-	@{n="TimeTo";e={ConvertFrom-UnixTimestamp -TimeStamp $_.TimeTo}} `
+    @{n="TimeTo";e={ConvertFrom-UnixTimestamp -TimeStamp $_.TimeTo}} `
     | Sort-Object TimeFrom | Format-Table -AutoSize
